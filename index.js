@@ -144,18 +144,3 @@ mongodbutil.connectToServer(function (err) {
 });
 
 module.exports = app;
-
-// app.use(
-//   session({
-//     secret: "samrendrasSecret",
-//     resave: false,
-//     saveUninitialized: false,
-//     store: MongoStore.create({
-//       mongoUrl:
-//         "mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false",
-//       dbName: "example-db",
-//       stringify: false,
-//     }),
-//     cookie: { maxAge: 1000 * 60 * 15, httpOnly: true },
-//   })
-// );
