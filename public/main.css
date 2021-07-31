@@ -2,10 +2,11 @@
 body,
 .tooltip {
   font-family: "Open Sans", sans-serif;
+  background-color: #131516;
 }
 
 .header-bar {
-  background-color: #292929;
+  background-color: #191B1C;
 }
 
 .container--narrow {
@@ -123,11 +124,13 @@ body,
 
 .form-group input,
 .form-group textarea {
+  background-color: #0F1111;
   position: relative;
   z-index: 2;
 }
 
 textarea.tall-textarea {
+  background-color: #0F1111;
   height: 160px;
 }
 

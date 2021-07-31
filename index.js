@@ -12,20 +12,18 @@ const csrf = require("csurf");
 const sanitizeHTML = require("sanitize-html");
 
 const app = express();
+var mongodbutil = require("./mongodbutil");
 
 const clientP = mongoose
   .connect(
-    // "mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false",
-    "mongodb+srv://samrendra:93549354Rocks!@cluster0.cizna.mongodb.net/posts?retryWrites=true&w=majority",
+    "mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false",
+    // "mongodb+srv://samrendra:93549354Rocks!@cluster0.cizna.mongodb.net/posts?retryWrites=true&w=majority",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     }
   )
   .then((m) => m.connection.getClient());
-
-var mongodbutil = require("./mongodbutil");
-var db = mongodbutil.getDb();
 
 mongodbutil.connectToServer(function (err) {
   //app goes online once this callback occurs
@@ -115,7 +113,6 @@ mongodbutil.connectToServer(function (err) {
       }
     }
   });
-  app.listen(8080);
 
   const server = require("http").createServer(app);
   const io = require("socket.io")(server);
@@ -142,6 +139,7 @@ mongodbutil.connectToServer(function (err) {
       });
     }
   });
+  server.listen(8080);
   module.exports = server;
 });
 
