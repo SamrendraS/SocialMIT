@@ -1,6 +1,5 @@
 const bcrypt = require("bcryptjs");
 const mongoose = require("mongoose");
-// const usersCollection = require("../db").collection("users");
 const usersCollection = mongoose.connection.db.collection("users");
 const validator = require("validator");
 const md5 = require("md5");
@@ -56,13 +55,13 @@ User.prototype.validate = function () {
       this.errors.push("Password must be atleast 8 characters.");
     }
     if (this.data.password.length > 50) {
-      this.errors.push("passwrod cannot exceed 50 charcaters.");
+      this.errors.push("Password cannot exceed 50 characters.");
     }
     if (this.data.username.length > 0 && this.data.username.length < 3) {
       this.errors.push("Username must be atleast 3 characters.");
     }
     if (this.data.username.length > 30) {
-      this.errors.push("Username cannot exceed 30 charcaters.");
+      this.errors.push("Username cannot exceed 30 characters.");
     }
 
     // only if username is valid then check to see if it's already taken
@@ -75,7 +74,7 @@ User.prototype.validate = function () {
         username: this.data.username,
       });
       if (usernameExists) {
-        this.errors.push("username already exists.");
+        this.errors.push("Username already exists.");
       }
     }
 

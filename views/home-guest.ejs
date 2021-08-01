@@ -1,16 +1,16 @@
 <%- include('partials/header') %>
 
-  <div class="container py-md-5 ">
+  <div class="container py-5" style="background-image: url(background.jpg);">
 
     <%- include('partials/flash') %>
 
-      <div class="row align-items-center">
-        <div class="col-lg-7 py-3 py-md-5">
+      <div class="row align-items-center p-5">
+        <div class="col-lg-7">
           <h1 class="display-3" style="color: #D1CDC7">Welcome to SocialMIT</h1>
-          <p class="lead text-muted">A platform designed for MIT, by MIT. To share, follow, chat, with the privacy
+          <p class="lead " style="color:#f0eeee;">A platform designed for MIT, by MIT. To share, follow, chat, with the privacy
             you've always wanted. </p>
         </div>
-        <div class="col-lg-5 pl-lg-5 pb-3 py-lg-5">
+        <div class="col-lg-5 pl-lg-5 pb-5 py-lg-5">
           <form action="/register" method="POST" id="registration-form">
 
             <% regErrors.forEach(function(message){ %>
@@ -21,26 +21,26 @@
 
 
                 <div class="form-group">
-                  <label for="username-register" class="text-muted mb-1"><small>Username</small></label>
+                  <label for="username-register" class="text-muted mb-1"><small style="color:#f0eeee;">Username</small></label>
                   <input name="username" id="username-register" class="form-control" type="text"
                     placeholder="Pick a username" autocomplete="off">
                 </div>
 
                 <div class="form-group">
-                  <label for="email-register" class="text-muted mb-1"><small>Email</small></label>
+                  <label for="email-register" class="text-muted mb-1"><small style="color:#f0eeee;">Email</small></label>
                   <input name="email" id="email-register" class="form-control" type="text" placeholder="you@example.com"
                     autocomplete="off">
                 </div>
 
                 <div class="form-group">
-                  <label for="password-register" class="text-muted mb-1"><small>Password</small></label>
+                  <label for="password-register" class="text-muted mb-1"><small style="color:#f0eeee;">Password</small></label>
                   <input name="password" id="password-register" class="form-control" type="password"
                     placeholder="Create a password">
-                </div>
+                </div>  
 
                 <input type="hidden" name="_csrf" value="<%= csrfToken %>">
 
-                <button type="submit" class="py-3 mt-4 btn btn-lg btn-success btn-block">Sign up for SocialMIT</button>
+                <button type="submit" class="py-3 mt-4 btn btn-lg btn-success btn-block" style="background-color: #45a29e;">Sign up for SocialMIT</button>
 
           </form>
         </div>

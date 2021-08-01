@@ -19,8 +19,8 @@ export default class Chat {
       e.preventDefault();
       this.sendMessageToServer();
     });
-    this.openIcon.addEventListener("click", () => this.showChat());
-    this.closeIcon.addEventListener("click", () => this.hideChat());
+    this.openIcon.addEventListener("click", () => showChat());
+    this.closeIcon.addEventListener("click", () => hideChat());
   }
 
   //methods
@@ -89,7 +89,6 @@ export default class Chat {
     this.chatWrapper.innerHTML = `
     //     <div class="chat-title-bar">Chat <span class="chat-title-bar-close"><i class="fas fa-times-circle"></i></span></div>
     //     <div id="chat" class="chat-log"></div>
-
     //     <form id="chatForm" class="chat-form border-top">
     //   <input type="text" class="chat-field" id="chatField" placeholder="Type a message…" autocomplete="off">
     // </form>
@@ -103,7 +102,6 @@ export default class Chat {
           <div class="fallback"></div>
         </div>
       </div>
-
       <form class="message_form">
         <input type="text" class="message_form__input" placeholder="Type a message" />
         <button class="message_form__button" type="submit">

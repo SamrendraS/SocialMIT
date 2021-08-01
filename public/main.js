@@ -5,8 +5,22 @@ const inputField = document.querySelector(".message_form__input");
 const messageForm = document.querySelector(".message_form");
 const messageBox = document.querySelector(".messages__history");
 const fallback = document.querySelector(".fallback");
-
+const closeIcon = document.querySelector(".chat-title-bar-close");
+const chatWrapper = document.querySelector("#chat-wrapper");
+const openIcon = document.querySelector(".header-chat-icon");
 let userName = "";
+
+const hideChat = () => {
+  chatWrapper.classList.remove("chat--visible");
+};
+
+const showChat = () => {
+  chatWrapper.classList.add("chat--visible");
+  chatField.focus();
+};
+
+openIcon.addEventListener("click", () => showChat());
+closeIcon.addEventListener("click", () => hideChat());
 
 const newUserConnected = (user) => {
   userName = user || `User${Math.floor(Math.random() * 1000000)}`;
@@ -21,7 +35,7 @@ const addToUsersBox = (userName) => {
 
   const userBox = `
     <div class="chat_ib ${userName}-userlist">
-      <h5>${userName}</h5>
+      ${userName}
     </div>
   `;
   inboxPeople.innerHTML += userBox;
@@ -36,23 +50,15 @@ const addNewMessage = ({ user, message }) => {
 
   const receivedMsg = `
   <div class="incoming__message">
-    <div class="received__message">
-      <p>${message}</p>
-      <div class="message__info">
-        <span class="message__author">${user}</span>
-        <span class="time_date">${formattedTime}</span>
-      </div>
-    </div>
+    <p style="text-align:left;">${message}</p>
+    <p style="text-align:right; color:#03dac5">${user}
+    ${formattedTime}</p>
   </div>`;
 
   const myMsg = `
   <div class="outgoing__message">
-    <div class="sent__message">
-      <p>${message}</p>
-      <div class="message__info">
-        <span class="time_date">${formattedTime}</span>
-      </div>
-    </div>
+    <p style="text-align:left;">${message}</p>
+    <p style="text-align:right;color:#03dac5">${formattedTime}</p>
   </div>`;
 
   messageBox.innerHTML += user === userName ? myMsg : receivedMsg;

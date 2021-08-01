@@ -1,11 +1,18 @@
 body,
 .tooltip {
   font-family: "Open Sans", sans-serif;
-  background-color: #131516;
+  background-color: #0b0c10;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+  background-color: #1f2833;
 }
 
 .header-bar {
-  background-color: #191b1c;
+  /* background-color: #1f2833; */
+  background-color: #101923;
 }
 
 .container--narrow {
@@ -44,6 +51,10 @@ body,
 .form-control-title {
   font-size: 2rem;
   font-weight: 500;
+}
+
+.form-control:focus {
+  background-color: #0b0c10;
 }
 
 .body-content {
@@ -289,13 +300,27 @@ textarea.tall-textarea {
   bottom: 0;
   right: 20px;
   width: 290px;
-  height: 350px;
-  background-color: #191b1c;
+  height: 450px;
+  background-color: #101923;
+  color: #d1cdc7;
   display: flex;
   flex-direction: column;
   transition: all 0.4s ease-in-out;
   opacity: 0;
   transform: translateY(100%);
+  margin: 0px;
+}
+
+.chat-container {
+  font-size: 0.75rem;
+  margin: 10px 20px;
+  overflow: auto;
+}
+
+.message_form__input {
+  background-color: #1f2833;
+  color: #66fcf1;
+  outline: none;
 }
 
 .chat--visible {
@@ -304,8 +329,8 @@ textarea.tall-textarea {
 }
 
 .chat-title-bar {
-  background-color: #292929;
-  color: #fff;
+  background-color: #0b0c10;
+  color: #45a29e;
   padding: 4px 7px;
   display: flex;
   justify-content: space-between;
