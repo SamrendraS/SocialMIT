@@ -8,11 +8,11 @@
 
         <div class="list-group">
           <% posts.forEach(function(post){ %>
-            <a href="/post/<%= post._id  %>" class="list-group-item list-group-item-action">
+            <a href="/post/<%= post._id  %>" class="list-group-item list-group-item-action" style="background-color: #181A1B; color: #f0eeee;" >
               <img class="avatar-tiny" src="<%= post.author.avatar %>">
               <strong>
                 <%= post.title %>
-              </strong> on <%= post.createdDate.getMonth() + 1 %>/<%= post.createdDate.getDate() %>/<%=
+              </strong> on <%= post.createdDate.getDate()%>/<%= post.createdDate.getMonth() +1 %>/<%=
                     post.createdDate.getFullYear() %>
             </a>
             <% }) %>

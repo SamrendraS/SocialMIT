@@ -34,7 +34,6 @@ mongodbutil.connectToServer(function (err) {
       saveUninitialized: false,
       store: MongoStore.create({
         clientPromise: clientP,
-        // dbName: "example-db-mongoose",
         stringify: false,
         autoRemove: "interval",
         autoRemoveInterval: 1,

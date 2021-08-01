@@ -8,6 +8,6 @@ if(document.querySelector("#registration-form")){
 
 if(document.querySelector("#chat-wrapper")){
     new Chat()
-}ti
+}
 
 if(document.querySelector(".header-search-icon")) {new Search()}
