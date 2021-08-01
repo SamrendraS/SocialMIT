@@ -29,7 +29,7 @@ mongodbutil.connectToServer(function (err) {
   //app goes online once this callback occurs
   app.use(
     session({
-      secret: "foo",
+      secret: "SamrendraS",
       resave: false,
       saveUninitialized: false,
       store: MongoStore.create({
@@ -44,7 +44,6 @@ mongodbutil.connectToServer(function (err) {
   app.use(flash());
 
   app.use(function (req, res, next) {
-    //make markdown function availabale from ejs templates
     res.locals.filterUserHTML = function (content) {
       return sanitizeHTML(markdown(content), {
         allowedTags: [
@@ -68,7 +67,6 @@ mongodbutil.connectToServer(function (err) {
       });
     };
 
-    //make all errors and success flash messages available from all templates
     res.locals.errors = req.flash("errors");
     res.locals.success = req.flash("success");
 

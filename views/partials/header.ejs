@@ -28,13 +28,13 @@
             data-placement="bottom"><i class="fas fa-search"></i></a>
           <span class="text-white mr-2 header-chat-icon" title="Chat" data-toggle="tooltip" data-placement="bottom"><i
               class="fas fa-comment"></i></span>
-          <a href="/profile/<%= user.username %>" class="mr-2"><img title="My Profile" data-toggle="tooltip"
+          <a id="image-source-for-chat" href="/profile/<%= user.username %>" class="mr-2"><img title="My Profile" data-toggle="tooltip"
               data-placement="bottom" style="width: 32px; height: 32px; border-radius: 16px;"
               src="<%= user.avatar %>"></a>
-          <a class="btn btn-sm btn-success mr-2" href="/create-post" style="background-color: #45A29E; font-weight: 100;">Create Post</a>
+          <a class="btn btn-sm btn-success mr-2" href="/create-post" style="background-color: #45A29E;">Create Post</a>
           <form action="/logout" method="POST" class="d-inline">
             <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-            <button class="btn btn-sm btn-secondary" style="background-color: #c5c6c7;color: #1F2833; font-weight: 100;">Sign Out</button>
+            <button class="btn btn-sm btn-secondary" style="background-color: #c5c6c7;color: #1F2833;">Sign Out</button>
           </form>
         </div>
         <% }else{ %>

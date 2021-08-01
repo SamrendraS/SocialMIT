@@ -5,6 +5,7 @@
     <%- include('partials/flash') %>
 
       <% if (posts.length) { %>
+        <h2 id="username-source" class="text-center mb-2" style="color:#D1CDC7; font-weight: 700;">Welcome <%= user.username %></h2>
         <h2 class="text-center mb-4" style="color:#D1CDC7; font-weight: 100;">The Latest From Those You Follow</h2>
         <div class="list-group">
           <% posts.forEach(function(post){ %>

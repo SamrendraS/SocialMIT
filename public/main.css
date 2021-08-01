@@ -323,6 +323,11 @@ textarea.tall-textarea {
   outline: none;
 }
 
+.outgoing__message {
+  display: flex;
+  justify-content: space-between;
+}
+
 .chat--visible {
   opacity: 1;
   transform: translateY(0);
