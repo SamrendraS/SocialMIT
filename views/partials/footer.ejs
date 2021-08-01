@@ -5,7 +5,26 @@
 </footer>
 
 <% if(user) { %>
-      <div id="chat-wrapper" class="chat-wrapper shadow border-top border-left border-right chat--visible   "></div>
+      <div id="chat-wrapper" class="chat-wrapper shadow border-top border-left border-right chat--visible   ">
+            <div class="container" style="color:#d1cdc7; overflow: auto; font-size: 10px;">
+            <div class="inbox">
+                  <div class="inbox__people">
+                        <h4>Active users</h4>
+                  </div>
+                  <div class="inbox__messages">
+                        <div class="messages__history"></div>
+                        <div class="fallback"></div>
+                  </div>
+            </div>
+            
+            <form class="message_form">
+                  <input type="text" class="message_form__input" placeholder="Type a message" />
+                  <button class="message_form__button" type="submit">
+                        Enter
+                  </button>
+            </form>
+            </div>
+      </div>
       <script src="/socket.io/socket.io.js"></script>
       <% }%>
 
@@ -19,6 +38,8 @@
                   integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
                   crossorigin="anonymous"></script>
             <script>$('[data-toggle="tooltip"]').tooltip()</script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+            <script src="main.js"></script>
             <script src="/main-bundled.js"></script>
             </body>
 

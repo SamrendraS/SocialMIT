@@ -112,33 +112,41 @@ mongodbutil.connectToServer(function (err) {
       }
     }
   });
-
-  const server = require("http").createServer(app);
-  const io = require("socket.io")(server);
-
-  io.use(function (socket, next) {
-    sessionOptions(socket.request, socket.request.res, next);
+  const server = app.listen(8080, function () {
+    console.log(`Listening on port 8080`);
+    console.log(`http://localhost:8080`);
   });
+  app.use(express.static("public"));
+
+  // Socket setup
+  const socket = require("socket.io");
+  const io = socket(server);
+
+  const activeUsers = new Set();
 
   io.on("connection", function (socket) {
-    if (socket.request.session.user) {
-      let user = socket.request.session.user;
+    console.log("Made socket connection");
 
-      socket.emit("welcome", { username: user.username, avatar: user.avatar });
+    socket.on("new user", function (data) {
+      socket.userId = data;
+      activeUsers.add(data);
+      io.emit("new user", [...activeUsers]);
+    });
 
-      socket.on("chatMessageFromBrowser", function (data) {
-        socket.broadcast.emit("chatMessageFromServer", {
-          message: sanitizeHTML(data.message, {
-            allowedTags: [],
-            allowedAttributes: {},
-          }),
-          username: user.username,
-          avatar: user.avatar,
-        });
-      });
-    }
+    socket.on("disconnect", () => {
+      activeUsers.delete(socket.userId);
+      io.emit("user disconnected", socket.userId);
+    });
+
+    socket.on("chat message", function (data) {
+      io.emit("chat message", data);
+    });
+
+    socket.on("typing", function (data) {
+      socket.broadcast.emit("typing", data);
+    });
   });
-  server.listen(8080);
+
   module.exports = server;
 });
 

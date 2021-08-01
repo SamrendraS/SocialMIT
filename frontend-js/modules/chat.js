@@ -1,5 +1,5 @@
 import DOMPurify from "dompurify";
-
+// import {socket} from '../../index';
 export default class Chat {
   constructor() {
     this.openedYet = false;
@@ -87,12 +87,30 @@ export default class Chat {
 
   injectHTML() {
     this.chatWrapper.innerHTML = `
-        <div class="chat-title-bar">Chat <span class="chat-title-bar-close"><i class="fas fa-times-circle"></i></span></div>
-        <div id="chat" class="chat-log"></div>
+    //     <div class="chat-title-bar">Chat <span class="chat-title-bar-close"><i class="fas fa-times-circle"></i></span></div>
+    //     <div id="chat" class="chat-log"></div>
 
-        <form id="chatForm" class="chat-form border-top">
-      <input type="text" class="chat-field" id="chatField" placeholder="Type a message…" autocomplete="off">
-    </form>
+    //     <form id="chatForm" class="chat-form border-top">
+    //   <input type="text" class="chat-field" id="chatField" placeholder="Type a message…" autocomplete="off">
+    // </form>
+    div class="container">
+      <div class="inbox">
+        <div class="inbox__people">
+          <h4>Active users</h4>
+        </div>
+        <div class="inbox__messages">
+          <div class="messages__history"></div>
+          <div class="fallback"></div>
+        </div>
+      </div>
+
+      <form class="message_form">
+        <input type="text" class="message_form__input" placeholder="Type a message" />
+        <button class="message_form__button" type="submit">
+          Enter
+        </button>
+      </form>
+    </div>
         `;
   }
 }
