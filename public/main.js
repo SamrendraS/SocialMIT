@@ -51,7 +51,7 @@ const addNewMessage = ({ user, message }) => {
   const receivedMsg = `
   <div class="incoming__message">
     <p style="text-align:left;">${message}</p>
-    <p style="text-align:right; color:#03dac5">${user}
+    <p style="text-align:right; color:#03dac5">${user} | 
     ${formattedTime}</p>
   </div>`;
 
