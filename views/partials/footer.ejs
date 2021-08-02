@@ -1,15 +1,15 @@
 <!-- footer begins -->
-<footer class="border-top text-center small text-muted py-3">
+<footer class="text-center small text-muted py-3" style="border-top: 3.5px solid #101923;">
       <p class="m-0" style="color: #c5c6c7;"><a href="https://samrendrasingh.com/" class="text-muted">Samrendra Kumar Singh</a></p>
 </footer>
 
 <% if(user) { %>
-      <div id="chat-wrapper" class="chat-wrapper shadow border-top border-left border-right chat--visible   ">
+      <div id="chat-wrapper" class="chat-wrapper shadow chat--visible   ">
             <div class="chat-title-bar">Chat <span class="chat-title-bar-close"><i class="fas fa-times-circle"></i></span></div>
             <div class="chat-container" >
                   <!-- style="color:#d1cdc7; overflow: auto; font-size: 10px;" -->
                   <div>
-                        <div class="inbox__people">
+                        <div class="inbox__people" style="border-bottom: 1px solid white;">
                               <span style="font-size: 17px">Active Users</span>
                         </div>
                         <div class="chat-log">
@@ -19,7 +19,7 @@
                   </div>
       
                   <form class="message_form">
-                  <input type="text" class="message_form__input" placeholder="Type a message" style="bottom:400; width:230px"/>
+                  <input type="text" id="chatField" class="message_form__input" placeholder="Type a message" style="width:230px"/>
                   </form>
             </div>
       </div>
@@ -37,7 +37,7 @@
                   crossorigin="anonymous"></script>
             <script>$('[data-toggle="tooltip"]').tooltip()</script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
-            <script src="main.js"></script>
+            <!-- <script src="main.js"></script> -->
             <script src="/main-bundled.js"></script>
             </body>
 

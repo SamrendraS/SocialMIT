@@ -9,11 +9,11 @@ const fallback = document.querySelector(".fallback");
 const closeIcon = document.querySelector(".chat-title-bar-close");
 const chatWrapper = document.querySelector("#chat-wrapper");
 const openIcon = document.querySelector(".header-chat-icon");
+const chatField = document.querySelector("#chatField");
+
 const imageSource = document.querySelector("#image-source-for-chat");
 const avatarImage = imageSource.firstChild.currentSrc;
-const userSource = document.querySelector("#username-source");
-if (userSource)
-  userName = userSource.textContent.substring(8, userSource.length);
+userName = imageSource.firstChild.alt;
 
 const hideChat = () => {
   chatWrapper.classList.remove("chat--visible");
@@ -27,8 +27,7 @@ const showChat = () => {
 openIcon.addEventListener("click", () => showChat());
 closeIcon.addEventListener("click", () => hideChat());
 
-const newUserConnected = (user) => {
-  // userName = user || `User${Math.floor(Math.random() * 1000000)}`;
+const newUserConnected = () => {
   socket.emit("new user", userName);
   addToUsersBox(userName);
 };
@@ -53,20 +52,6 @@ const addNewMessage = ({ user, message }) => {
     minute: "numeric",
   });
 
-  // const receivedMsg = `
-  // <div class="incoming__message">
-  //   <p style="text-align:left;">${message}</p>
-  //    <img class="chat-avatar avatar-tiny" src="${avatarImage}">
-  //   <p style="text-align:right; color:#03dac5">${user} |
-  //   ${formattedTime}</p>
-  // </div>`;
-
-  // const myMsg = `
-  // <div class="outgoing__message">
-  //   <p style="text-align:left;">${message}</p>
-  //   <p style="text-align:right;color:#03dac5">${formattedTime}</p>
-  // </div>`;
-
   const receivedMsg1 = `
   <div class="outgoing__message">
     <div>${message}</div>
@@ -75,8 +60,9 @@ const addNewMessage = ({ user, message }) => {
         <img class="chat-avatar avatar-tiny" src="${avatarImage}">
       </div>
       <div>
-        <p style="color:#03dac5">${user} | 
-      ${formattedTime}</div>
+        <p style="color:#03dac5">${user} |
+          ${formattedTime}
+      </div>
     </div>
   </div>`;
 
@@ -88,8 +74,9 @@ const addNewMessage = ({ user, message }) => {
         <img class="chat-avatar avatar-tiny" src="${avatarImage}">
       </div>
       <div>
-        <p style="color:#03dac5">You | 
-      ${formattedTime}</div>
+        <p style="color:#03dac5">You |
+          ${formattedTime}
+      </div>
     </div>
   </div>`;
 

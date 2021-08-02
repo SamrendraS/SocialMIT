@@ -4,7 +4,7 @@ const webpack = require("webpack");
 module.exports = {
   entry: "./frontend-js/main.js",
   output: {
-    filename: "main-bundled.js",
+    filename: "main-bundled-2.js",
     path: path.resolve(__dirname, "public"),
   },
   mode: "production",
