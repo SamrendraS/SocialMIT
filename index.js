@@ -23,9 +23,8 @@ mongodbutil.connectToServer(function (err) {
       resave: false,
       saveUninitialized: false,
       store: MongoStore.create({
-        mongoUrl:
-          "mongodb+srv://samrendra:93549354Rocks!@cluster0.cizna.mongodb.net/",
-        dbName: "posts",
+        // mongoUrl: process.env.MONGO_URI_DEV,
+        mongoUrl: process.env.MONGO_UTIL_URI,
         stringify: false,
       }),
     })
@@ -99,9 +98,9 @@ mongodbutil.connectToServer(function (err) {
       }
     }
   });
-  const server = app.listen(8080, function () {
-    console.log(`Listening on port 8080`);
-    console.log(`http://localhost:8080`);
+  const server = app.listen(process.env.PORT, function () {
+    console.log(`Listening on port ${process.env.PORT}`);
+    console.log(`http://localhost:${process.env.PORT}`);
   });
 
   // Socket setup
